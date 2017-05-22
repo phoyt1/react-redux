@@ -3,10 +3,14 @@ import Stations from '../components/Stations'
 import store from '../store';
 import {connect} from 'react-redux'
 
+
 function convertSongsToStations(songsArray){
   return songsArray.reduce(function(acc,val){
+    console.log('acc',acc);
+    console.log('val',val);
     if(acc[val.genre]) acc[val.genre].push(val)
     else acc[val.genre] = [val]
+    return acc;
   },{})
 }
 function mapStateToProps(state){
